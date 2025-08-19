@@ -50,8 +50,8 @@ The Smart Device Management API is a backend service designed to manage users an
 1.  **Clone the repository:**
 
     ```bash
-    git clone your_repository_url
-    cd your_repository_name
+    git clone https://github.com/ashishmor-17/device_manager.git
+    cd device_manager
     ```
 
 2.  **Install dependencies:**
