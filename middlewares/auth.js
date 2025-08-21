@@ -46,3 +46,11 @@ exports.refreshToken = async (req, res) => {
     res.status(403).json({ message: 'Invalid refresh token' });
   }
 };
+
+exports.verifyTokenSocket = (socket) => {
+  const token = socket.handshake.auth?.token;
+  if (!token) throw new Error('No token provided');
+
+  const payload = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+  socket.user = payload;
+};
