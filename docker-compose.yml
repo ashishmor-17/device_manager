@@ -6,10 +6,25 @@ services:
       - '3000:3000'
     depends_on:
       - mongo
+      - redis
     environment:
       - MONGO_URI=mongodb://mongo:27017/smartdevices
       - JWT_SECRET=your_jwt_secret
+      - REDIS_URI=redis://redis:6379
+      - PORT=3000
+    restart: unless-stopped
   mongo:
     image: mongo
     ports:
       - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '6379:6379'
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
