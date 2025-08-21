@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../middlewares/auth');
+const { verifyToken: auth } = require('../middlewares/auth');
 const { registerDevice, getDevices, heartbeat, createLog, getLogs, getUsage } = require('../controllers/deviceController');
 
 

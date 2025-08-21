@@ -45,6 +45,25 @@
       "response": []
     },
     {
+      "name": "Auth - Refresh Token",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"token\": \"{{refreshToken}}\" }"
+        },
+        "url": {
+          "raw": "http://localhost:3000/auth/refresh",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["auth", "refresh"]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "Devices - Create",
       "request": {
         "method": "POST",
@@ -159,15 +178,8 @@
     }
   ],
   "variable": [
-    {
-      "key": "token",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "deviceId",
-      "value": "",
-      "type": "string"
-    }
+    { "key": "token", "value": "" },
+    { "key": "refreshToken", "value": "" },
+    { "key": "deviceId", "value": "" }
   ]
 }
