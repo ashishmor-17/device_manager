@@ -71,13 +71,19 @@ exports.heartbeat = async (req, res) => {
       { new: true }
     );
 
-    if (!device) {
-      return res.status(404).json({ success: false, message: 'Device not found' });
-    }
+    if (!device) return res.status(404).json({ success: false, message: 'Device not found' });
 
-    // Invalidate caches affected by device updates
+    // Invalidate caches
     await delByPattern(`devices:${req.user.id}:*`);
     await delByPattern(`usage:${id}:*`);
+
+    // Broadcast device heartbeat to all clients
+    const io = req.app.get('io');
+    io.emit('device-heartbeat', {
+      deviceId: device._id,
+      status: device.status,
+      last_active_at: device.last_active_at
+    });
 
     res.json({
       success: true,
@@ -89,6 +95,7 @@ exports.heartbeat = async (req, res) => {
     res.status(500).json({ success: false, message: 'Server error' });
   }
 };
+
 
 exports.createLog = async (req, res) => {
   try {
