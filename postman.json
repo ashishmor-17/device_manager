@@ -2,7 +2,7 @@
   "info": {
     "name": "Smart Device Manager",
     "_postman_id": "b3f13a5d-4f7c-4d78-b17e-9f786f4d2c6c",
-    "description": "API collection for Smart Device Manager backend",
+    "description": "API collection for Smart Device Manager backend (with exports & reports)",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -10,7 +10,12 @@
       "name": "Auth - Signup",
       "request": {
         "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"SecurePass123\",\n  \"role\": \"user\"\n}"
@@ -18,9 +23,14 @@
         "url": {
           "raw": "http://localhost:3000/auth/signup",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "3000",
-          "path": ["auth", "signup"]
+          "path": [
+            "auth",
+            "signup"
+          ]
         }
       },
       "response": []
@@ -29,7 +39,12 @@
       "name": "Auth - Login",
       "request": {
         "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"SecurePass123\"\n}"
@@ -37,9 +52,14 @@
         "url": {
           "raw": "http://localhost:3000/auth/login",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "3000",
-          "path": ["auth", "login"]
+          "path": [
+            "auth",
+            "login"
+          ]
         }
       },
       "response": []
@@ -48,7 +68,12 @@
       "name": "Auth - Refresh Token",
       "request": {
         "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "{ \"token\": \"{{refreshToken}}\" }"
@@ -56,9 +81,14 @@
         "url": {
           "raw": "http://localhost:3000/auth/refresh",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "3000",
-          "path": ["auth", "refresh"]
+          "path": [
+            "auth",
+            "refresh"
+          ]
         }
       },
       "response": []
@@ -68,8 +98,14 @@
       "request": {
         "method": "POST",
         "header": [
-          { "key": "Content-Type", "value": "application/json" },
-          { "key": "Authorization", "value": "Bearer {{token}}" }
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
         ],
         "body": {
           "mode": "raw",
@@ -78,9 +114,13 @@
         "url": {
           "raw": "http://localhost:3000/devices",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "3000",
-          "path": ["devices"]
+          "path": [
+            "devices"
+          ]
         }
       },
       "response": []
@@ -89,13 +129,22 @@
       "name": "Devices - List",
       "request": {
         "method": "GET",
-        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
         "url": {
           "raw": "http://localhost:3000/devices",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "3000",
-          "path": ["devices"]
+          "path": [
+            "devices"
+          ]
         }
       },
       "response": []
@@ -105,8 +154,14 @@
       "request": {
         "method": "POST",
         "header": [
-          { "key": "Content-Type", "value": "application/json" },
-          { "key": "Authorization", "value": "Bearer {{token}}" }
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
         ],
         "body": {
           "mode": "raw",
@@ -115,9 +170,15 @@
         "url": {
           "raw": "http://localhost:3000/devices/{{deviceId}}/heartbeat",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "3000",
-          "path": ["devices", "{{deviceId}}", "heartbeat"]
+          "path": [
+            "devices",
+            "{{deviceId}}",
+            "heartbeat"
+          ]
         }
       },
       "response": []
@@ -127,8 +188,14 @@
       "request": {
         "method": "POST",
         "header": [
-          { "key": "Content-Type", "value": "application/json" },
-          { "key": "Authorization", "value": "Bearer {{token}}" }
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
         ],
         "body": {
           "mode": "raw",
@@ -137,9 +204,15 @@
         "url": {
           "raw": "http://localhost:3000/devices/{{deviceId}}/logs",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "3000",
-          "path": ["devices", "{{deviceId}}", "logs"]
+          "path": [
+            "devices",
+            "{{deviceId}}",
+            "logs"
+          ]
         }
       },
       "response": []
@@ -148,14 +221,30 @@
       "name": "Device Logs - List",
       "request": {
         "method": "GET",
-        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
         "url": {
           "raw": "http://localhost:3000/devices/{{deviceId}}/logs?limit=10",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "3000",
-          "path": ["devices", "{{deviceId}}", "logs"],
-          "query": [{ "key": "limit", "value": "10" }]
+          "path": [
+            "devices",
+            "{{deviceId}}",
+            "logs"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
         }
       },
       "response": []
@@ -164,22 +253,115 @@
       "name": "Device Usage - Aggregated",
       "request": {
         "method": "GET",
-        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
         "url": {
           "raw": "http://localhost:3000/devices/{{deviceId}}/usage?range=24h",
           "protocol": "http",
-          "host": ["localhost"],
+          "host": [
+            "localhost"
+          ],
           "port": "3000",
-          "path": ["devices", "{{deviceId}}", "usage"],
-          "query": [{ "key": "range", "value": "24h" }]
+          "path": [
+            "devices",
+            "{{deviceId}}",
+            "usage"
+          ],
+          "query": [
+            {
+              "key": "range",
+              "value": "24h"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Export Device Logs (CSV/JSON)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/export/logs/{{deviceId}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "export",
+            "logs",
+            "{{deviceId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Metrics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/metrics",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "metrics"
+          ]
         }
       },
       "response": []
     }
   ],
   "variable": [
-    { "key": "token", "value": "" },
-    { "key": "refreshToken", "value": "" },
-    { "key": "deviceId", "value": "" }
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "refreshToken",
+      "value": ""
+    },
+    {
+      "key": "deviceId",
+      "value": ""
+    },
+    {
+      "key": "jobId",
+      "value": ""
+    }
   ]
 }
